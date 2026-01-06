@@ -1,19 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 @import "tailwindcss";
-
 @import "./base.css";
 
 
 @theme {
-  --spacing: 8px;
-
   --font-sans: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-  --font-serif: "Libre Baskerville", serif;
-  --font-title: "Barrio", system-ui;
+  --font-serif: "Playfair Display", serif;
 
-  --color-background: #f5f5f0;
-  --color-foreground: #5d866c;
+  --color-foreground: #f5f5f0;
+  --color-background: #294a35;
 }
-

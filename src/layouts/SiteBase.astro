@@ -12,9 +12,9 @@ const { title } = Astro.props;
 ---
 
 <Base title={title}>
-  <div class="m-auto md:w-2xl">
+  <div class="m-auto w-[90%] sm:w-xl">
     <Header />
-    <main class="font-serif">
+    <main class="mt-15">
       <slot></slot>
     </main>
     <Footer />

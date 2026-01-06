@@ -1,15 +1,14 @@
 const siteConfig = ({
   Lang: "pt-BR",
-  SiteName: "IPedroHenrick",
+  SiteName: "P3AGA",
   Description: "Pedro Henrick personal portfolio/blog :)",
   Author: "Pedro Henrick Queiroz",
-  Year: 2025,
+  Year: 2026,
 })
 
 const menuLinks: { path: string, title: string }[] = [
-  { path: "/", title: "Home" },
-  { path: "/blog/", title: "Blog" },
-  { path: "/about/", title: "About" },
+  { path: "/blog", title: "Blog" },
+  { path: "/about", title: "Sobre" },
 ];
 
 export { menuLinks, siteConfig };

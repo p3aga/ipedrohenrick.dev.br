@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://ipedrohenrick.dev.br',
   base: '/',
-  trailingSlash: 'always',
+  trailingSlash: 'never',
   integrations: [mdx()],
   vite: {
     plugins: [tailwindcss()]

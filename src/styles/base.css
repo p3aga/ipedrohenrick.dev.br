@@ -1,6 +1,5 @@
 @layer base {
-  h1 {
-    font-size: var(--text-3xl);
-    font-weight: var(--font-weight-bold);
+  p {
+    margin: 1rem 0;
   }
 }
