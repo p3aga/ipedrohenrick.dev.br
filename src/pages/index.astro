@@ -1,9 +1,35 @@
 ---
+import PostPreview from "@/components/blog/PostPreview.astro";
 import SiteBase from "@/layouts/SiteBase.astro";
+import { getOrderedBlogPosts } from "@/utils/blog";
+
+
+const allPostsByDate = await getOrderedBlogPosts();
+const postsFiltereded = allPostsByDate.slice(0, 5)
 ---
 
 <SiteBase title="Home">
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam quibusdam cupiditate ab architecto. Vero quaerat repellendus aspernatur doloribus excepturi dolores praesentium harum? Dignissimos sit totam, at tempore voluptas iure.</p>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, aliquid! Culpa modi mollitia et, voluptates, voluptate ea ratione officia, vel fugiat ex veniam in ipsa inventore tempore suscipit ad tenetur?</p>
+  <section class="text-base">
+    <h1 class="sr-only">Pedro Henrick Queiroz</h1>
 
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam quibusdam cupiditate ab architecto. Vero quaerat repellendus aspernatur doloribus excepturi dolores praesentium harum? Dignissimos sit totam, at tempore voluptas iure.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, aliquid! Culpa modi mollitia et, voluptates, voluptate ea ratione officia, vel fugiat ex veniam in ipsa inventore tempore suscipit ad tenetur?</p>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-xl font-bold">Posts recentes</h2>
+    <div>
+      {
+        postsFiltereded.map((post) => (
+          <PostPreview 
+            id={ post.id }
+            title={ post.data.title }
+            description={ post.data.description }
+            pubDate={ post.data.pubDate }
+            tags={ post.data.tags }
+          />
+        ))
+      }
+    </div>
+  </section>
 </SiteBase>

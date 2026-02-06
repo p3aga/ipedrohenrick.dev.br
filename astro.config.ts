@@ -10,6 +10,11 @@ export default defineConfig({
   base: '/',
   trailingSlash: 'never',
   integrations: [mdx()],
+  markdown: {
+    shikiConfig: {
+      theme: 'gruvbox-dark-hard',
+    }
+  },
   vite: {
     plugins: [tailwindcss()]
   }

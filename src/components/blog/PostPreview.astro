@@ -1,4 +1,6 @@
 ---
+import PostDate from "@/components/blog/PostDate.astro";
+
 interface Props {
   id: string,
   title: string,
@@ -10,27 +12,22 @@ interface Props {
 const { id, title, description, pubDate, tags } = Astro.props;
 ---
 
-<div class="mt-5 mb-5">
+<article class="my-5">
   <a href={`/blog/${id}`} class="hover:opacity-90">
-    <div class="flex items-center gap-4">
-      <h2 class="text-lg font-semibold">{ title }</h2>
-      <div class="flex-1 border-t opacity-20"></div>
-      <time
-        datetime={ pubDate.toISOString() }
-        class="opacity-50"
-      >
-        { pubDate.toLocaleDateString() }
-      </time>
-    </div>
-    <div class="text-sm opacity-75">
-      <em>{ description }</em>
-    </div>
-    <div>
-      {
-        tags.map(tag => (
-          <span class="me-1 text-sm">#{ tag }</span>   
-        ))
-      }
-    </div>
+      <div class="flex items-center gap-4">
+        <span class="font-medium">{ title }</span>
+        <div class="flex-1 border-t opacity-20"></div>
+        <PostDate pubDate={ pubDate } />
+      </div>
+      <div class="text-sm font-light opacity-75">
+        <em>{ description }</em>
+      </div>
+      <div>
+        {
+          tags.map(tag => (
+            <span class="me-1 text-sm">#{ tag }</span>
+          ))
+        }
+      </div>
   </a>
-</div>
+</article>

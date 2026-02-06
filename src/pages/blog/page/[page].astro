@@ -1,14 +1,15 @@
 ---
 import type { Page, GetStaticPaths } from "astro";
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 import SiteBase from "@/layouts/SiteBase.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
+import { getOrderedBlogPosts } from "@/utils/blog";
 
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-  const blogPosts = await getCollection('blog'); 
+  const allPostsByDate = await getOrderedBlogPosts();
 
-  return paginate(blogPosts, {
+  return paginate(allPostsByDate, {
     pageSize: 20,
   });
 };
@@ -21,15 +22,18 @@ const { page } = Astro.props;
 ---
 
 <SiteBase title={ `Blog pág ${page}` }>
-  {
-    page.data.map((post) => (
-      <PostPreview 
-        id={ post.id }
-        title={ post.data.title }
-        description={ post.data.description }
-        pubDate={ post.data.pubDate }
-        tags={ post.data.tags }
-      />
-    ))
-  }
+  <h1>Posts</h1>
+  <div>
+    {
+      page.data.map((post) => (
+        <PostPreview 
+          id={ post.id }
+          title={ post.data.title }
+          description={ post.data.description }
+          pubDate={ post.data.pubDate }
+          tags={ post.data.tags }
+        />
+      ))
+    }
+  </div>
 </SiteBase>

@@ -1,8 +1,8 @@
 ---
 title: 'Markdown Style Guide'
-description: "Markdown guide"
-pubDate: '2025-06-28'
-tags: ["markdown","guide"]
+description: 'This post is for testing and listing a number of different markdown elements'
+pubDate: '2023-02-22'
+tags: ["test", "markdown"]
 ---
 
 This theme does not define more levels of headlines. If needed, you can define them in `src/styles/post.css`.
@@ -44,6 +44,7 @@ You can use various formatting options like **bold**, _italic_, ~~strikethrough~
 
 To hide the caption, start it with an underscore `_` or leave the alt text empty.
 
+![HIKARI](@/assets/hikari.jpg)
 
 ## Tables
 

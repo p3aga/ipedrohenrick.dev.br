@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { type CollectionEntry, getCollection, render } from "astro:content";
+import PostDate from "@/components/blog/PostDate.astro";
 import SiteBase from "@/layouts/SiteBase.astro";
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -19,6 +20,10 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<SiteBase title={post.data.title}>
+<SiteBase title={ post.data.title }>
+  <h1>{ post.data.title }</h1>
+  <div class="text-sm">
+    <PostDate pubDate={ post.data.pubDate } />
+  </div>
   <Content />
 </SiteBase>
