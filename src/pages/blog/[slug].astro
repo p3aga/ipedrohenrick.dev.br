@@ -21,9 +21,15 @@ const { Content } = await render(post);
 ---
 
 <SiteBase title={ post.data.title }>
-  <h1>{ post.data.title }</h1>
-  <div class="text-sm">
-    <PostDate pubDate={ post.data.pubDate } />
-  </div>
-  <Content />
+  <section>
+    <div class="mb-10">
+      <h1 class="text-3xl font-black mb-2 sm:text-4xl">{ post.data.title }</h1>
+      <div class="text-xs sm:text-sm">
+        <PostDate pubDate={ post.data.pubDate } />
+      </div>
+    </div>
+    <article class="prose">
+      <Content />
+    </article>
+  </section>
 </SiteBase>

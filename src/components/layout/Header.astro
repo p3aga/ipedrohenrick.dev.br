@@ -5,12 +5,12 @@ import { menuLinks, siteConfig } from "@/site.config";
 <header>
   <div class="mt-20 mb-10">
     <div>
-      <a href="/" class="text-2xl font-title font-black">{siteConfig.SiteName}</a>
+      <a href="/" class="text-4xl font-title font-black sm:text-5xl ">{siteConfig.SiteName}</a>
     </div>
     <nav class="divide-x -ms-3 mt-2 divide-dashed font-serif">
       {
         menuLinks.map(link => (
-          <a href={link.path} class="px-3 box-border font-medium">{link.title}</a>
+          <a href={link.path} class="text-lg px-3 box-border font-semibold sm:text-xl">{link.title}</a>
         ))
       }
     </nav>
