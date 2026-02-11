@@ -4,18 +4,28 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite'; 
+import astroExpressiveCode from 'astro-expressive-code';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ipedrohenrick.dev.br',
   base: '/',
   trailingSlash: 'never',
-  integrations: [mdx(), icon()],
-  markdown: {
-    shikiConfig: {
-      theme: 'gruvbox-dark-hard',
-    }
-  },
+  integrations: [
+    astroExpressiveCode({
+      themes: ['gruvbox-dark-medium'],
+      styleOverrides: {
+        borderRadius: '4px',
+        uiFontFamily: 'var(--font-sans), sans-serif',
+        codeFontFamily: 'var(--font-mono), monospace',
+        frames: {
+          frameBoxShadowCssValue: "none",
+        },
+      }
+    }),
+    mdx(),
+    icon(),
+  ],
   vite: {
     plugins: [tailwindcss()]
   }
