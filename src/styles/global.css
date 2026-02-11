@@ -3,16 +3,10 @@
 @import "tailwindcss";
 @import "./prose.css";
 
-@theme {
-  --color-*: initial;
 
+@theme {
   --font-title: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --font-serif: "Noto Serif", serif;
-
-  --color-black: #000;
-  --color-white: #f5f5f0;
-  --color-green: #3c6b4d;
-  --color-boldgreen: #294a35;
 }
