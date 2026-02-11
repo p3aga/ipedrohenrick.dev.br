@@ -12,20 +12,25 @@ interface Props {
 const { id, title, description, pubDate, tags } = Astro.props;
 ---
 
-<article class="my-5">
+<article class="@container/post-preview my-5">
   <a href={`/blog/${id}`} class="hover:opacity-80">
-    <div class="flex items-center gap-4">
-      <h3 class="text-base font-bold sm:text-lg">{ title }</h3>
-      <div class="flex-1 border-t opacity-20"></div>
-      <PostDate pubDate={ pubDate } />
+    <div class="@md/post-preview:flex @md/post-preview:items-center @md/post-preview:gap-4">
+      <h3 class="text-base font-bold whitespace-nowrap text-ellipsis overflow-hidden sm:text-lg">{ title }</h3>
+      <div class="flex-1 border-t opacity-20 @max-md/post-preview:hidden"></div>
+      <div class="@max-md/post-preview:hidden">
+        <PostDate pubDate={ pubDate } />
+      </div>
     </div>
     <div class="text-xs font-medium opacity-50 sm:text-sm">
       <em>{ description }</em>
     </div>
-    <div>
+    <div class="whitespace-nowrap text-ellipsis overflow-hidden">
+      <div class="hidden me-1 after:content-['-'] after:opacity-50 @max-md/post-preview:inline">
+        <PostDate pubDate={ pubDate } />
+      </div>
       {
         tags.map(tag => (
-          <span class="text-xs me-1 font-medium sm:text-sm">#{ tag }</span>
+          <span class="text-sm me-1 font-medium inline">#{ tag }</span>
         ))
       }
     </div>

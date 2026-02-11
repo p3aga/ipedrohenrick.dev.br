@@ -8,7 +8,7 @@ const { pubDate } = Astro.props;
 
 <time
   datetime={ pubDate.toISOString() }
-  class="opacity-50"
+  class="opacity-50 text-sm sm:text-base"
 >
   { pubDate.toLocaleDateString() }
 </time>
