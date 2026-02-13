@@ -1,4 +1,5 @@
 const siteConfig = ({
+  Url: 'https://ipedrohenrick.dev.br',
   Lang: "pt-BR",
   SiteName: "P3AGA",
   Description: "Pedro Henrick personal portfolio/blog :)",

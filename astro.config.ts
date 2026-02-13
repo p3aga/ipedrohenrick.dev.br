@@ -6,12 +6,13 @@ import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite'; 
 import astroExpressiveCode from 'astro-expressive-code';
 
+import { siteConfig } from './src/site.config';
 import rehypeTableProcessor from './src/plugins/rehype-table-processor';
 
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ipedrohenrick.dev.br',
+  site: siteConfig.Url,
   base: '/',
   trailingSlash: 'never',
   integrations: [
