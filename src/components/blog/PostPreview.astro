@@ -16,7 +16,7 @@ const { id, title, description, pubDate, tags } = Astro.props;
   <a href={`/blog/${id}`} class="hover:opacity-80">
     <div class="@md/post-preview:flex @md/post-preview:items-center @md/post-preview:gap-4">
       <h3 class="text-base font-bold whitespace-nowrap text-ellipsis overflow-hidden sm:text-lg">{ title }</h3>
-      <div class="flex-1 border-t opacity-20 @max-md/post-preview:hidden"></div>
+      <div class="flex-1 border-t opacity-30 @max-md/post-preview:hidden"></div>
       <div class="@max-md/post-preview:hidden">
         <PostDate pubDate={ pubDate } />
       </div>
