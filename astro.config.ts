@@ -6,6 +6,9 @@ import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite'; 
 import astroExpressiveCode from 'astro-expressive-code';
 
+import rehypeTableProcessor from './src/plugins/rehype-table-processor';
+
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ipedrohenrick.dev.br',
@@ -26,6 +29,9 @@ export default defineConfig({
     mdx(),
     icon(),
   ],
+  markdown: {
+    rehypePlugins: [rehypeTableProcessor],
+  },
   vite: {
     plugins: [tailwindcss()]
   }

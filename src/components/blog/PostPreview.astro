@@ -15,13 +15,13 @@ const { id, title, description, pubDate, tags } = Astro.props;
 <article class="@container/post-preview my-5">
   <a href={`/blog/${id}`} class="transition-opacity duration-200 hover:opacity-80">
     <div class="@md/post-preview:flex @md/post-preview:items-center @md/post-preview:gap-4">
-      <h3 class="text-base font-bold whitespace-nowrap text-ellipsis overflow-hidden sm:text-lg">{ title }</h3>
+      <h3 class="text-lg font-bold whitespace-nowrap text-ellipsis overflow-hidden">{ title }</h3>
       <div class="flex-1 border-t opacity-30 @max-md/post-preview:hidden"></div>
       <div class="@max-md/post-preview:hidden">
         <PostDate pubDate={ pubDate } />
       </div>
     </div>
-    <div class="text-xs font-medium opacity-50 sm:text-sm">
+    <div class="text-sm font-medium opacity-50">
       <em>{ description }</em>
     </div>
     <div class="whitespace-nowrap text-ellipsis overflow-hidden">

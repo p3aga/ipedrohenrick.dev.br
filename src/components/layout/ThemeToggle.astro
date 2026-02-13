@@ -4,22 +4,11 @@ import { Icon } from "astro-icon/components";
 
 <button id="themeToggle" class="cursor-pointer" type="button">
   <span class="sr-only">Dark Theme</span>
-  <Icon name="ph:moon" class="text-2xl sm:text-3xl hidden dark:block"/>
-  <Icon name="ph:sun-dim" class="text-2xl sm:text-3xl block dark:hidden"/>
+  <Icon name="ph:moon" class="text-3xl hidden dark:block"/>
+  <Icon name="ph:sun-dim" class="text-3xl block dark:hidden"/>
 </button>
 
 <script is:inline>
-  const theme = (() => {
-    const themeStoraged = localStorage.getItem('theme')
-    if (typeof localStorage !== undefined && themeStoraged) return themeStoraged;
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
-    return 'light';
-  })();
-  
-  if (theme != 'dark') {
-    document.documentElement.classList.remove('dark');
-  }
-
   const handleToggleTheme = (() => {
     document.documentElement.classList.toggle('dark');
     const isDark = document.documentElement.classList.contains('dark');

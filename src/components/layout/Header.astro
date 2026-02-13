@@ -6,13 +6,13 @@ import { menuLinks, siteConfig } from "@/site.config";
 <header>
   <div class="mt-20 mb-10">
     <div class="flex justify-between items-center">
-      <a href="/" class="text-4xl font-title font-black sm:text-5xl ">{siteConfig.SiteName}</a>
+      <a href="/" class="text-5xl font-title font-black">{siteConfig.SiteName}</a>
       <ThemeToggle />
     </div>
     <nav class="divide-x -ms-3 mt-2 divide-dashed font-serif">
       {
         menuLinks.map(link => (
-          <a href={link.path} class="text-lg px-3 box-border font-semibold sm:text-xl">{link.title}</a>
+          <a href={link.path} class="text-xl px-3 box-border font-semibold">{link.title}</a>
         ))
       }
     </nav>
