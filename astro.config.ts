@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 import astroExpressiveCode from 'astro-expressive-code';
 
 import { siteConfig } from './src/site.config';
+import remarkDirective from 'remark-directive';
 import rehypeTableProcessor from './src/plugins/rehype-table-processor';
 
 
@@ -31,7 +32,12 @@ export default defineConfig({
     icon(),
   ],
   markdown: {
-    rehypePlugins: [rehypeTableProcessor],
+    remarkPlugins: [
+      remarkDirective,
+    ],
+    rehypePlugins: [
+      rehypeTableProcessor,
+    ],
   },
   vite: {
     plugins: [tailwindcss()]
