@@ -7,7 +7,10 @@ interface Props {
   url: string
 }
 const { url } = Astro.props;
-let metadata: linkCardMetadataProps;
+
+let metadata: linkCardMetadataProps = {
+  title: new URL(url).hostname,
+};
 
 try {
   const response = await fetch(url);
@@ -15,10 +18,9 @@ try {
 
   const { result } = await ogs({ html });
   metadata = {
-    title: result.ogTitle || 'Sem título',
-    description: result.ogDescription,
+    title: result.ogTitle || metadata.title,
+    description: result.ogDescription ,
     image: result.ogImage?.[0]?.url,
-    siteName: result.ogSiteName || new URL(url).hostname
   }
 
 } catch (error) {
@@ -26,13 +28,21 @@ try {
 }
 ---
 
-<a href={ url } target="_blank" class="w-full flex flex-col gap-2 p-3 pb-6 my-4 border rounded-sm border-green-900/30 bg-green-900/10 dark:border-green-50/30 dark:border-green-50/10">
-  {metadata.image && (
-    <img class="w-full h-auto rounded-sm" src={ metadata.image } alt={ metadata.title } loading="lazy">
-  )}
-  <div class="px-2 flex flex-col">
-    <span class="font-bold">{ metadata.title }</span>
-    <span class="text-sm text-green-900/50 dark:text-green-50/50">{ metadata.description }</span>
-    <span class="text-xs text-green-900/50 dark:text-green-50/50">{ metadata.siteName }</span>
-  </div>
-</a>
+<div class="not-prose">
+  <a
+    href={ url }
+    target="_blank"
+    class="w-[90%] block mx-auto mt-8 mb-5 p-3 border rounded-sm border-green-900/30 bg-green-900/10 dark:border-green-50/30 dark:bg-green-50/10"
+  >
+    { metadata.image && (
+      <img class="w-full h-auto rounded-xs mb-2" src={ metadata.image } alt={ metadata.title } loading="lazy">
+    )}
+
+    <div class="flex flex-col">
+      <span class="font-bold">{ metadata.title }</span>
+      { metadata.description && (
+        <span class="text-sm text-green-900/50 dark:text-green-50/50 mb-2">{ metadata.description }</span>
+      )}
+    </div>
+  </a>
+</div>

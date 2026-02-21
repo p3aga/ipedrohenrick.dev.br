@@ -5,59 +5,60 @@
     --prose-li-marker-color: oklch(from var(--prose-base-color) l c h / 0.5);
     --prose-bg-soft-color: oklch(from var(--prose-base-color) l c h / 0.1);
 
-    :not(.not-prose):not(.not-prose *) {
-      & :is(h1,h2,h3,h4,h5,h6) {
+    & :where(*):not(.not-prose, .not-prose *) {
+
+      &:is(h1,h2,h3,h4,h5,h6) {
         margin-top: calc(var(--spacing) * 8);
         margin-bottom: calc(var(--spacing) * 4);
       }
 
-      & h2 {
+      &:is(h2) {
         font-size: var(--text-2xl);
         font-weight: var(--font-weight-black);
       }
       
-      & h3 {
+      &:is(h3) {
         font-size: var(--text-xl);
         font-weight: var(--font-weight-bold);
       }
       
-      & h4 {
+      &:is(h4) {
         font-size: var(--text-lg);
         font-weight: var(--font-weight-bold);
       }
       
-      & :is(h5,h6) {
+      &:is(h5,h6) {
         font-size: var(--text-base);
       }
-      
-      & h5 {
+
+      &:is(h5) {
         font-weight: var(--font-weight-bold);
       }
-      
-      & h6 {
+
+      &:is(h6) {
         font-weight: var(--font-weight-semibold);
       }
 
-      & p {
+      &:is(p) {
         margin-bottom: calc(var(--spacing) * 4);
       }
 
-      & hr {
+      &:is(hr) {
         border-top-width: 1px;
         opacity: 0.3;
         margin-block: calc(var(--spacing) * 6);
       }
 
-      & strong {
+      &:is(strong) {
         font-weight: bold;
       }
 
-      & :is(em,blockquote) {
+      &:is(em, blockquote) {
         font-style: italic;
         font-family: var(--font-serif);
       };
 
-      & blockquote {
+      &:is(blockquote) {
         padding-inline-start: calc(var(--spacing) * 6);
         border-left: 1px solid var(--prose-border-color);
 
@@ -66,7 +67,7 @@
         }
       }
 
-      & :is(ul,ol) {
+      &:is(ul,ol) {
         list-style-position: inside;
         margin-bottom: calc(var(--spacing) * 4);
         margin-inline-start: calc(var(--spacing) * 2);
@@ -85,15 +86,15 @@
         }
       }
 
-      & ul:not(.contains-task-list) {
+      &:is(ul):not(.contains-task-list) {
         list-style-type: disc;
       }
 
-      & ol {
+      &:is(ol) {
         list-style-type: decimal;
       }
 
-      & ul.contains-task-list {
+      &:is(ul).contains-task-list {
         & li {
           display: flex;
           align-items: center;
@@ -122,7 +123,7 @@
         }
       }
 
-      & .table-wrapper {
+      &:is(.table-wrapper) {
         overflow-x: scroll;
 
         & table {
@@ -156,7 +157,7 @@
         }
       }
 
-      & :is(code:not(pre code), kbd) {
+      &:is(code:not(pre code), kbd) {
         font-family: var(--font-mono);
         padding-inline: var(--spacing);
         background-color: var(--prose-bg-soft-color);
@@ -166,14 +167,14 @@
         white-space: nowrap;
       }
 
-      & mark {
+      &:is(mark) {
         background-color: color-mix(in oklch, var(--prose-base-color), transparent 80%);
         color: var(--prose-base-color);
         padding-inline: var(--spacing);
         font-weight: bold;
       }
 
-      & sup {
+      &:is(sup) {
         & a {
           margin-inline-start: calc(var(--spacing) / 2);
           margin-inline-end: var(--spacing);
@@ -189,7 +190,7 @@
         }
       }
 
-      & a {
+      &:is(a) {
         text-decoration: underline;
         text-decoration-color: var(--prose-border-color);
         transition: opacity 200ms;
@@ -199,14 +200,14 @@
         }
       }
 
-      & .footnotes {
+      &:is(.footnotes) {
         border-top: 1px solid var(--prose-border-color);
         padding-top: calc(var(--spacing) * 6);
         margin-top: calc(var(--spacing) * 15);
         font-size: var(--text-sm);
       }
 
-      & .expressive-code {
+      &:is(.expressive-code) {
         margin-bottom: calc(var(--spacing) * 4);
       }
     }
